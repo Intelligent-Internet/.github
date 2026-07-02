@@ -24,15 +24,6 @@
 
 Agents don't fail for lack of intelligence — they fail when knowledge is stale, retrieval is expensive, output is unverified, and capability never reaches a surface users can own. So we build **every stage of the line**, not one layer of it:
 
-```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#f7f4ec','primaryTextColor':'#1b2a63','primaryBorderColor':'#1b2a63','lineColor':'#c9a227','fontSize':'14px'}}}%%
-flowchart LR
-    A["🧪 <b>Capability<br/>Foundry</b><br/><i>train specialist models</i>"] --> B["📚 <b>Governed<br/>Context</b><br/><i>knowledge as supply</i>"]
-    B --> C["🔎 <b>Retrieval<br/>Fabric</b><br/><i>search before every action</i>"]
-    C --> D["⚙️ <b>Work<br/>Harness</b><br/><i>verify, gate, replan</i>"]
-    D --> E["🚀 <b>Owned<br/>Surfaces</b><br/><i>ship it to people</i>"]
-```
-
 | | Control point | Why it matters | Open source |
 |---|---|---|---|
 | **01** | **Capability Foundry** — create capability, not wrappers | If you only rent frontier APIs, your ceiling is someone else's roadmap | [II-Medical](https://huggingface.co/Intelligent-Internet/II-Medical-8B) · [II-Search](https://huggingface.co/Intelligent-Internet/II-Search-4B) · [II-Thought](https://github.com/Intelligent-Internet/ii-thought) |
@@ -45,13 +36,33 @@ flowchart LR
 
 ---
 
+## 🏆 Zenith — #1 on Frontier SWE
+
+The clearest proof that the harness layer matters: on the independent [Frontier SWE benchmark](https://www.frontierswe.com), **GPT-5.5 running inside [Zenith](https://github.com/Intelligent-Internet/zenith) ranks #1 overall — ahead of every frontier model paired with its own native harness.** The identical model on its native harness ranks #5. Same model, better control loop.
+
+| # | Model | Harness | Avg rank ↓ | Dominance ↑ |
+|---:|---|---|---:|---:|
+| **1** | **GPT-5.5** | 🥇 **Zenith** | **2.06** | **92%** |
+| 2 | Claude Fable | Claude Code | 2.71 | 88% |
+| 3 | Claude Opus 4.8 | Claude Code | 5.06 | 71% |
+| 4 | GLM-5.2 | Claude Code | 5.31 | 69% |
+| 5 | GPT-5.5 | Codex *(native)* | 5.53 | 68% |
+
+<sub>Metrics as reported by the [Frontier SWE leaderboard](https://www.frontierswe.com) — full 15-entry table in the [Zenith results](https://github.com/Intelligent-Internet/zenith#results).</sub>
+
+Zenith is our continuous-improvement harness for missions that run for days or weeks, where the dominant failure mode is *premature completion*. One orchestrator session reads task state each turn and decides whether to spawn workers and testers, register reusable skills, replan, or stop — over MCP/ACP, on top of Claude Code, Codex, or Hermes. In our published ablation across eight long-horizon tasks, Zenith achieves the **best mean rank at less than half of RALPH's per-task cost** ($176 vs $408).
+
+📄 Technical report: [*From RALPH to Zenith: Designing Harnesses for Long-Running Agents*](https://github.com/Intelligent-Internet/zenith/blob/main/technical_report/Technical_Report.pdf)
+
+---
+
 ## 🚀 Flagship Projects
 
 | Project | | What it does |
 |---|---|---|
 | **[II-Agent](https://github.com/Intelligent-Internet/ii-agent)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/ii-agent?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | Open general agent framework — browser, code, files, sandboxed execution, documents, slides, multi-model routing |
+| **[Zenith](https://github.com/Intelligent-Internet/zenith)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/zenith?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | **#1 on Frontier SWE** — continuous-improvement harness for long-running agent tasks; turns Claude Code, Codex, or Hermes into a multi-agent mission orchestrator via MCP/ACP |
 | **[II-Researcher](https://github.com/Intelligent-Internet/ii-researcher)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/ii-researcher?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | Deep-research agent: query decomposition, search generation, context compression, self-critique, cited reports — **84.1 on FRAMES** |
-| **[Zenith](https://github.com/Intelligent-Internet/zenith)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/zenith?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | Continuous-improvement harness for long-running agent tasks — turns Claude Code, Codex, or Hermes into a multi-agent mission orchestrator via MCP/ACP |
 | **[CommonGround](https://github.com/Intelligent-Internet/CommonGround)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/CommonGround?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | From isolated agents to shared work — records, evidence, handoffs, and decisions that persist beyond one run |
 | **[psql_bm25s](https://github.com/Intelligent-Internet/psql_bm25s)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/psql_bm25s?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | Postgres-native exact BM25: mutable indexes, crash recovery, replication-friendly storage, SQL-native permissions |
 | **[II-Commons](https://github.com/Intelligent-Internet/II-Commons)** | ![Stars](https://img.shields.io/github/stars/Intelligent-Internet/II-Commons?style=flat-square&logo=github&label=%E2%AD%90&color=1B2A63) | The knowledge supply chain: Wikipedia, PD12M, arXiv, PubMed — parsed, embedded, indexed, and served with provenance |
@@ -76,9 +87,9 @@ Everything on the [🤗 Hugging Face hub](https://huggingface.co/Intelligent-Int
 
 <div align="center">
 
-| ⭐ **5,000+** | 🧪 **341K** | 🏥 **2.2M** | 🤗 **9 + 20** | 🏭 **5/5** |
-|:---:|:---:|:---:|:---:|:---:|
-| GitHub stars across the org | verified RL problems, open | medical reasoning rows | open models + datasets | production-line stages shipped, all open |
+| 🏆 **#1** | ⭐ **5,000+** | 🧪 **341K** | 🏥 **2.2M** | 🤗 **9 + 20** | 🏭 **5/5** |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| on Frontier SWE (Zenith) | GitHub stars across the org | verified RL problems, open | medical reasoning rows | open models + datasets | production-line stages shipped, all open |
 
 </div>
 
