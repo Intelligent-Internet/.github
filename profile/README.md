@@ -12,7 +12,7 @@
 <br/>
 
 [![Website](https://img.shields.io/badge/Website-ii.inc-1B2A63?style=for-the-badge)](https://ii.inc)
-[![Blog](https://img.shields.io/badge/Blog-Research%20%26%20Releases-1B2A63?style=for-the-badge)](https://ii.inc/web/blog)
+[![Research & Releases](https://img.shields.io/badge/Research%20%26%20Releases-1B2A63?style=for-the-badge)](https://ii.inc/releases)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models%20%26%20Datasets-FFD21E?style=for-the-badge&labelColor=1B2A63)](https://huggingface.co/Intelligent-Internet)
 [![Symbioism](https://img.shields.io/badge/Symbioism-A%20Third%20Path-C9A227?style=for-the-badge&labelColor=1B2A63)](https://symbioism.com)
 
@@ -107,6 +107,6 @@ Earlier experiments like [CoT-Lab](https://github.com/Intelligent-Internet/CoT-L
 
 ### *Intelligence is our greatest resource. Together, we make it abundant.*
 
-**[ii.inc](https://ii.inc)** · **[Blog](https://ii.inc/web/blog)** · **[🤗 Hugging Face](https://huggingface.co/Intelligent-Internet)** · **[Symbioism](https://symbioism.com)**
+**[ii.inc](https://ii.inc)** · **[Research & Releases](https://ii.inc/releases)** · **[🤗 Hugging Face](https://huggingface.co/Intelligent-Internet)** · **[Symbioism](https://symbioism.com)**
 
 </div>
